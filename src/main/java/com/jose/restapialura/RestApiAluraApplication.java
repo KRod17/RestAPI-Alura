@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RestApiAluraApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RestApiAluraApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RestApiAluraApplication.class, args);
+    }
 
 }
