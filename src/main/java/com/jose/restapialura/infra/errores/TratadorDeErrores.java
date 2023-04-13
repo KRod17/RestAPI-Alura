@@ -1,4 +1,4 @@
-package com.jose.restapialura.infra;
+package com.jose.restapialura.infra.errores;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
