@@ -1,6 +1,9 @@
 package com.jose.restapialura.controller;
 
 import com.jose.restapialura.domain.usuarios.DatosAutenticacionUsuario;
+import com.jose.restapialura.domain.usuarios.Usuario;
+import com.jose.restapialura.infra.security.DatosJWTToken;
+import com.jose.restapialura.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class AutenticacionController {
     @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private TokenService tokenService;
     @PostMapping
     public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
-        Authentication token = new UsernamePasswordAuthenticationToken(
+        Authentication authToken = new UsernamePasswordAuthenticationToken(
                 datosAutenticacionUsuario.login(),
-                datosAutenticacionUsuario.clave()
-        );
-        authenticationManager.authenticate(token);
-        return ResponseEntity.ok().build();
+                datosAutenticacionUsuario.clave());
+        var usuarioAutenticado = authenticationManager.authenticate(authToken);
+        var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
+        return ResponseEntity.ok(new DatosJWTToken(JWTtoken));
     }
 }
