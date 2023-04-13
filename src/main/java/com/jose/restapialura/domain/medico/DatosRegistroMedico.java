@@ -1,6 +1,6 @@
-package com.jose.restapialura.medico;
+package com.jose.restapialura.domain.medico;
 
-import com.jose.restapialura.direccion.DatosDireccion;
+import com.jose.restapialura.domain.direccion.DatosDireccion;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,11 +9,11 @@ import jakarta.validation.constraints.Pattern;;
 
 public record DatosRegistroMedico(
         // Solo letras - No puede llegar vacío
-        @NotBlank
+        @NotBlank(message = "Nombre es obligatorio")
         String nombre,
         // Formato email - - No puede llegar vacío
         @NotBlank
-        @Email
+        @Email(message = "Formato de email es inválido")
         String email,
         @NotBlank
         String telefono,

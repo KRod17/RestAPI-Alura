@@ -1,6 +1,6 @@
-package com.jose.restapialura.medico;
+package com.jose.restapialura.domain.medico;
 
-import com.jose.restapialura.direccion.DatosDireccion;
+import com.jose.restapialura.domain.direccion.DatosDireccion;
 import jakarta.validation.constraints.NotNull;
 
 public record DatosActualizarMedico(

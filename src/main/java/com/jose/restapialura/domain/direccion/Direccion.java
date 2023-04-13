@@ -1,4 +1,4 @@
-package com.jose.restapialura.direccion;
+package com.jose.restapialura.domain.direccion;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

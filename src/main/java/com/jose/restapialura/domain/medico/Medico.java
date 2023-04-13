@@ -1,10 +1,8 @@
-package com.jose.restapialura.medico;
+package com.jose.restapialura.domain.medico;
 
-import com.jose.restapialura.direccion.Direccion;
+import com.jose.restapialura.domain.direccion.Direccion;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.*;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")

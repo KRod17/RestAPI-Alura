@@ -1,4 +1,4 @@
-package com.jose.restapialura.medico;
+package com.jose.restapialura.domain.medico;
 
 public enum Especialidad {
     ORTOPEDIA,
